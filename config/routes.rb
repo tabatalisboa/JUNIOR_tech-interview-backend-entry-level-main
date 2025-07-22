@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resource :cart, only: [:show, :create] do
-    patch :add_item, on: :collection
+    post :add_item, on: :collection
     delete ':product_id', action: :destroy_product, on: :collection
   end
 
