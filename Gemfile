@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.3.1"
 gem "rails", "~> 7.1.3", ">= 7.1.3.2"
+gem "active_model_serializers"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
