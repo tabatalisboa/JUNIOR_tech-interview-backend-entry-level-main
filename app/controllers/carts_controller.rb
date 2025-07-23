@@ -1,11 +1,5 @@
 class CartsController < ApplicationController
-
-  # GET /cart
-  def show
-    @cart = current_cart
-    render json: @cart, serializer: CartSerializer
-  end
-
+  
   # POST /cart
   def create
     cart = current_cart
@@ -18,7 +12,13 @@ class CartsController < ApplicationController
 
     cart.update!(total_price: calculate_total_price(cart))
 
-    render json: @cart, serializer: CartSerializer
+    render json: cart, serializer: CartSerializer
+  end
+
+  # GET /cart
+  def show
+    cart = current_cart
+    render json: cart, serializer: CartSerializer
   end
 
   # PATCH /cart/add_item
@@ -33,7 +33,7 @@ class CartsController < ApplicationController
 
     cart.update!(total_price: calculate_total_price(cart))
 
-    render json: @cart, serializer: CartSerializer
+    render json: cart, serializer: CartSerializer
   end
 
   # DELETE /cart/:product_id
@@ -45,7 +45,7 @@ class CartsController < ApplicationController
 
     cart.update!(total_price: calculate_total_price(cart))
 
-    render json: @cart, serializer: CartSerializer
+    render json: cart, serializer: CartSerializer
   end
 
 
