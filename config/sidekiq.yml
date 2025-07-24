@@ -1,6 +1,12 @@
 :concurrency: 3
 :timeout: 60
 :verbose: true
+
+:schedule:
+  abandoned_carts_cleanup:
+    cron: "*/15 * * * *"
+    class: "Carts::AbandonedCleanupJob"
+
 :queues:
   - critical
   - default
